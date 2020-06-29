@@ -8,9 +8,13 @@ import android.view.Gravity;
 
 import androidx.appcompat.widget.AppCompatSpinner;
 
+import java.util.List;
+
 public class CustomSpinner extends AppCompatSpinner {
     int textAlignment;
     private int backgroundColor;
+    private List<IDisplay> data;
+    private CustomSpinnerAdapter adapter;
 
     public CustomSpinner(Context context) {
         super(context);
@@ -50,5 +54,18 @@ public class CustomSpinner extends AppCompatSpinner {
         super.setBackgroundResource(resId);
     }
 
+    public void setCustomAdapter(CustomSpinnerAdapter adapter) {
+        this.adapter = adapter;
+        setAdapter(adapter);
+    }
+
+    public void setData(List<IDisplay> data) {
+        this.data = data;
+        if (this.adapter == null) {
+            adapter = new CustomSpinnerAdapter(getContext(), data);
+        } else
+            adapter.changeData(data);
+        setAdapter(adapter);
+    }
 
 }
