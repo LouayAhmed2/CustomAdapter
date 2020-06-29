@@ -40,4 +40,15 @@ public class CustomSpinner extends AppCompatSpinner {
         }
     }
 
+    @Override
+    public void setTextAlignment(int textAlignment) {
+        super.setTextAlignment(textAlignment);
+    }
+
+    @Override
+    public void setBackgroundResource(int resId) {
+        super.setBackgroundResource(resId);
+    }
+
+
 }
