@@ -1,14 +1,14 @@
 package com.example.customspinnertask;
 
 public class User implements IDisplay {
-    String Username;
+    String username;
 
     public User(String username) {
-        Username = username;
+        this.username = username;
     }
 
     @Override
     public String getName() {
-        return null;
+        return username;
     }
 }

@@ -11,10 +11,11 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import java.util.List;
 
 public class CustomSpinner extends AppCompatSpinner {
-    int textAlignment;
+    private int TextAlignment;
     private int backgroundColor;
     private List<IDisplay> data;
     private CustomSpinnerAdapter adapter;
+
 
     public CustomSpinner(Context context) {
         super(context);
@@ -30,19 +31,24 @@ public class CustomSpinner extends AppCompatSpinner {
         init(attrs);
     }
 
+
     private void init(AttributeSet attrs) {
         TypedArray a = getContext().getTheme().
                 obtainStyledAttributes(attrs, R.styleable.CustomSpinner, 0, 0);
         try {
-
             backgroundColor = a.getColor(R.styleable.CustomSpinner_backgroundcolor, Color.WHITE);
-            textAlignment = a.getInt(R.styleable.CustomSpinner_textAlignment, Gravity.NO_GRAVITY);
+            TextAlignment = a.getInt(R.styleable.CustomSpinner_textAlignment, Gravity.NO_GRAVITY);
             setBackgroundColor(backgroundColor);
-            setTextAlignment(textAlignment);
+            setTextAlignment(TextAlignment);
         } finally {
+
             a.recycle();
+
         }
+
+
     }
+
 
     @Override
     public void setTextAlignment(int textAlignment) {

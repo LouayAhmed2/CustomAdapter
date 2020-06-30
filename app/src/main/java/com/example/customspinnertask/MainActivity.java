@@ -1,6 +1,7 @@
 package com.example.customspinnertask;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         customSpinner = findViewById(R.id.spinner);
         List<IDisplay> data = getTestData();
         customSpinner.setData(data);
-
+        customSpinner.setBackgroundResource(R.color.colorAccent);
+        customSpinner.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
     }
 

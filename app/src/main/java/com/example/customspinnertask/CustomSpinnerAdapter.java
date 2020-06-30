@@ -33,6 +33,7 @@ public class CustomSpinnerAdapter extends BaseAdapter {
         return position;
     }
 
+
     public View getView(final int position, View convertView, final ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
