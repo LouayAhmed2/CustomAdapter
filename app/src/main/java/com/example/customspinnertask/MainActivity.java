@@ -1,6 +1,7 @@
 package com.example.customspinnertask;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +18,12 @@ public class MainActivity extends AppCompatActivity {
         customSpinner = findViewById(R.id.spinner);
         List<IDisplay> data = getTestData();
         customSpinner.setData(data);
-
+        customSpinner.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
+            @Override
+            public void onItemSelected(IDisplay item, int position) {
+                Toast.makeText(MainActivity.this, item.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
