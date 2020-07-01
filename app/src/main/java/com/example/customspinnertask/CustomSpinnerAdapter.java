@@ -12,10 +12,14 @@ import java.util.List;
 public class CustomSpinnerAdapter extends BaseAdapter {
     private Context context;
     private List<IDisplay> list;
+    OnSpinnerItemClickListener onSpinnerItemClickListener;
 
-    CustomSpinnerAdapter(Context c, List<IDisplay> l) {
+
+    CustomSpinnerAdapter(Context c, List<IDisplay> l,
+                         OnSpinnerItemClickListener onSpinnerItemClickListener) {
         this.context = c;
         this.list = l;
+        this.onSpinnerItemClickListener = onSpinnerItemClickListener;
     }
 
     @Override
@@ -59,6 +63,10 @@ public class CustomSpinnerAdapter extends BaseAdapter {
 
     class ViewHolder {
         TextView textView;
+    }
+
+    public void setOnSpinnerItemClickListener(OnSpinnerItemClickListener onSpinnerItemClickListener) {
+        this.onSpinnerItemClickListener = onSpinnerItemClickListener;
     }
 
 }

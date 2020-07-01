@@ -15,6 +15,8 @@ public class CustomSpinner extends AppCompatSpinner {
     private int backgroundColor;
     private List<IDisplay> data;
     private CustomSpinnerAdapter adapter;
+    private OnSpinnerItemClickListener onSpinnerItemClickListener;
+
 
 
     public CustomSpinner(Context context) {
@@ -65,13 +67,21 @@ public class CustomSpinner extends AppCompatSpinner {
         setAdapter(adapter);
     }
 
+
     public void setData(List<IDisplay> data) {
         this.data = data;
-        if (this.adapter == null) {
-            adapter = new CustomSpinnerAdapter(getContext(), data);
-        } else
+        if (this.adapter == null)
+            adapter = new CustomSpinnerAdapter(getContext(), data, this.onSpinnerItemClickListener);
+        else
             adapter.changeData(data);
         setAdapter(adapter);
     }
+
+    public void setOnSpinnerItemClickListener(OnSpinnerItemClickListener onSpinnerItemClickListener) {
+        this.onSpinnerItemClickListener = onSpinnerItemClickListener;
+        if (adapter != null)
+            adapter.setOnSpinnerItemClickListener(onSpinnerItemClickListener);
+    }
+
 
 }
