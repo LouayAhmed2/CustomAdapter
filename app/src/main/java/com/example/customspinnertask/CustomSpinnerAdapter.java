@@ -106,6 +106,7 @@ public class CustomSpinnerAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     onSpinnerItemClickListener.onItemSelected(iDisplay, position);
+
                 }
             });
         return convertView;
